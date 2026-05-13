@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAKIR - Layanan Pengantaran Cepat & Aman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://carryflix.com/jakir.jpg" alt="JAKIR Logo" class="h-10 w-auto mr-2">
+                <span class="text-2xl font-bold text-amber-500">JAKIR</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#layanan" class="text-gray-700 hover:text-amber-500 transition">Layanan</a>
+                <a href="#tarif" class="text-gray-700 hover:text-amber-500 transition">Tarif</a>
+                <a href="#testimoni" class="text-gray-700 hover:text-amber-500 transition">Kata Pelanggan</a>
+                <a href="#office" class="text-gray-700 hover:text-amber-500 transition">Office</a>
+            </div>
+            <button class="md:hidden text-gray-700" id="mobileMenuBtn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="#layanan" class="block px-4 py-2 text-gray-700 hover:bg-amber-50">Layanan</a>
+            <a href="#tarif" class="block px-4 py-2 text-gray-700 hover:bg-amber-50">Tarif</a>
+            <a href="#testimoni" class="block px-4 py-2 text-gray-700 hover:bg-amber-50">Kata Pelanggan</a>
+            <a href="#office" class="block px-4 py-2 text-gray-700 hover:bg-amber-50">Office</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section pt-32 pb-16 px-4 bg-gradient-to-r from-amber-400 to-amber-600 text-white mt-16">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Layanan Cepat dan Aman Bersama JAKIR</h1>
+                <p class="text-lg md:text-xl mb-8 text-blue-100">JAKIR hadir sebagai solusi praktis untuk kebutuhan Anda—cukup pesan, kami yang urus dan antar.</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="formulir.html#orderForm" class="text-center bg-white text-amber-600 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition">
+                        <i class="fas fa-shopping-cart mr-2"></i>MAS JAKIR
+                    </a>
+                    <a href="#office" class="text-center bg-amber-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">
+                        <i class="fas fa-phone mr-2"></i>KONTAK
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-4xl text-amber-500 mb-4">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">JAKIR Delivery</h2>
+                    <p class="text-gray-700 mb-6">
+                        Melayani jasa pengantaran dengan cepat, aman, dan fleksibel. Termasuk pengantaran makanan dan minuman, barang atau paket kecil, titip belanja, antri pesanan, pengambilan paket dari ekspedisi, toko, atau penjual online, serta kebutuhan lainnya sesuai kesepakatan.
+                    </p>
+                    <a href="formulir.html#orderForm" class="inline-block w-full text-center bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600 transition font-semibold">
+                        <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-4xl text-amber-500 mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Layanan Rumah & Hunian</h2>
+                    <p class="text-gray-700 mb-6">
+                        Layanan bantuan untuk memenuhi berbagai kebutuhan rumah tangga dan hunian secara praktis dan fleksibel. Mencakup bersih-bersih rumah, beres-beres ruangan, pindahan, serta kebutuhan ringan lainnya di rumah, kos, atau kontrakan.
+                    </p>
+                    <a href="formulir.html#orderForm" class="inline-block w-full text-center bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600 transition font-semibold">
+                        <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- More Services -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Pengantaran Makanan</h3>
+                    <p class="text-gray-600 text-sm">Antar makanan dan minuman dengan aman dan cepat</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Belanja & Titip</h3>
+                    <p class="text-gray-600 text-sm">Berbelanja untuk Anda, kami antar langsung</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-3xl text-amber-500 mb-3">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Bersih-Bersih</h3>
+                    <p class="text-gray-600 text-sm">Membantu membersihkan rumah atau ruangan Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="tarif" class="py-16 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tarif JAKIR</h2>
+                <p class="text-gray-600 text-lg">Temukan layanan JAKIR yang paling sesuai dengan kebutuhan Anda!</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Pricing Card 1 -->
+                <div class="bg-gradient-to-br from-amber-400 to-amber-600 text-white p-8 rounded-lg shadow-lg">
+                    <div class="mb-6">
+                        <p class="text-amber-100 text-sm">Mulai dari</p>
+                        <p class="text-4xl font-bold">Rp 6.000</p>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6">JAKIR Delivery</h3>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Pengantaran Makanan & Minuman</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Kirim & Ambil Barang</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Belanja, Beli Obat, Antar/Ambil Laundry</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Antri Pesanan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Antar Dokumen / Berkas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Layanan Tambahan (Sesuai Kesepakatan)</span>
+                        </li>
+                    </ul>
+                    <a href="formulir.html#orderForm" class="w-full block text-center bg-white text-amber-600 py-3 rounded-lg font-bold hover:bg-amber-50 transition">
+                        <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
+                    </a>
+                </div>
+
+                <!-- Pricing Card 2 -->
+                <div class="bg-gradient-to-br from-green-600 to-green-800 text-white p-8 rounded-lg shadow-lg">
+                    <div class="mb-6">
+                        <p class="text-green-100 text-sm">Mulai dari</p>
+                        <p class="text-4xl font-bold">Rp 50.000</p>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6">Layanan Rumah & Hunian</h3>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Bersih-Bersih Rumah, Kost, atau Kontrakan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Membersihkan Kamar Mandi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Angkut Barang</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Bantuan Keperluan Rumah Mendesak</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Pindahan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check mr-3 mt-1"></i>
+                            <span>Layanan Tambahan (Sesuai Kesepakatan)</span>
+                        </li>
+                    </ul>
+                    <a href="formulir.html#orderForm" class="w-full block text-center bg-white text-green-600 py-3 rounded-lg font-bold hover:bg-green-50 transition">
+                        <i class="fas fa-phone-alt mr-2"></i>Hubungi Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimoni" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Kata Mereka</h2>
+                <p class="text-gray-600 text-lg">Tentang Jasa JAKIR</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-300 to-amber-500 rounded-full flex items-center justify-center text-white font-bold">
+                            D
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-bold">Diah</p>
+                            <p class="text-yellow-400 text-sm">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Pengantaran cepat, komunikasi jelas, dan yang paling penting barang sampai dengan aman. Sangat membantu untuk kebutuhan harian."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold">
+                            B
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-bold">Bayu Setiawan</p>
+                            <p class="text-yellow-400 text-sm">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Terima kasih banyak JAKIR. Puas banget dengan sistemnya yang super cepat, mitranya juga sigap, ramah, dan komunikasinya sangat baik. Pasti bakal order lagi!"
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                            L
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-bold">Lestari</p>
+                            <p class="text-yellow-400 text-sm">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Responnya cepat dan fleksibel sesuai kebutuhan. Cocok untuk keperluan mendadak. Akan menjadi pilihan utama saya di kemudian hari."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Section -->
+    <section id="office" class="py-16 px-4 bg-amber-500 text-white">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Hubungi JAKIR</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-4 text-2xl mt-1"></i>
+                            <div>
+                                <p class="font-bold">Alamat Kantor</p>
+                                <p class="text-blue-100">Jl. Merdeka No. 123<br>Kota Anda, Provinsi 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope mr-4 text-2xl mt-1"></i>
+                            <div>
+                                <p class="font-bold">Email</p>
+                                <p class="text-blue-100">info@jakir.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone mr-4 text-2xl mt-1"></i>
+                            <div>
+                                <p class="font-bold">Telepon</p>
+                                <p class="text-blue-100">+62 8xx xxxx xxxx</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock mr-4 text-2xl mt-1"></i>
+                            <div>
+                                <p class="font-bold">Jam Operasional</p>
+                                <p class="text-blue-100">Senin - Jumat: 08:00 - 17:00<br>Sabtu - Minggu: 09:00 - 15:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Ikuti Media Sosial Kami</h3>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
+                            <i class="fab fa-instagram text-2xl mr-3"></i>
+                            <span>@jakir_official</span>
+                        </a>
+                        <a href="#" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
+                            <i class="fab fa-tiktok text-2xl mr-3"></i>
+                            <span>@jakir_official</span>
+                        </a>
+                        <a href="#" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
+                            <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                            <span>+62 8xx xxxx xxxx</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">JAKIR</h3>
+                    <p class="text-gray-400">Solusi pengantaran dan jasa yang cepat, aman, dan terpercaya untuk memenuhi kebutuhan Anda sehari-hari.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Menu</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#layanan" class="hover:text-white transition">Layanan</a></li>
+                        <li><a href="#tarif" class="hover:text-white transition">Tarif</a></li>
+                        <li><a href="#testimoni" class="hover:text-white transition">Testimoni</a></li>
+                        <li><a href="#office" class="hover:text-white transition">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Layanan</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">JAKIR Delivery</a></li>
+                        <li><a href="#" class="hover:text-white transition">Layanan Rumah</a></li>
+                        <li><a href="#" class="hover:text-white transition">Pengantaran Khusus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 JAKIR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "jakir-website",
+  "version": "1.0.0",
+  "description": "Layanan Pengantaran Cepat & Aman - JAKIR",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Open index.html in your browser'",
+    "build": "echo 'Production ready'",
+    "deploy": "echo 'Deploy to Vercel or Netlify'"
+  },
+  "keywords": [
+    "delivery",
+    "jasa",
+    "pengantaran",
+    "layanan",
+    "jakir"
+  ],
+  "author": "JAKIR Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/jakir.git"
+  },
+  "homepage": "https://jakir.vercel.app"
+}
