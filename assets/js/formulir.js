@@ -1,3 +1,61 @@
+// Dynamic Form Labels berdasarkan Jenis Layanan
+const layananConfig = {
+    'delivery': {
+        label_jemput: 'Lokasi Jemput/Titik Awal',
+        placeholder_jemput: 'Contoh: Depan Kantor JAKIR, Jl. Merdeka No. 123',
+        label_tujuan: 'Lokasi Tujuan',
+        placeholder_tujuan: 'Contoh: Perumahan Griya Sejahtera, Blok A No. 5'
+    },
+    'makanan': {
+        label_jemput: 'Toko/Warung/Restoran',
+        placeholder_jemput: 'Contoh: Warung Sxxx di Jl. Merdeka atau sebutkan nama tempat',
+        label_tujuan: 'Alamat Pengiriman',
+        placeholder_tujuan: 'Contoh: Rumah saya, Perumahan Griya Sejahtera Blok A No. 5'
+    },
+    'barang': {
+        label_jemput: 'Lokasi Pengambilan Barang',
+        placeholder_jemput: 'Contoh: Depan Toko Elektronik, Jl. Ahmad Yani',
+        label_tujuan: 'Lokasi Pengiriman Barang',
+        placeholder_tujuan: 'Contoh: Rumah saya, Perumahan Sejahtera Blok A No. 5'
+    },
+    'obat': {
+        label_jemput: 'Apotek/Lokasi Pembelian',
+        placeholder_jemput: 'Contoh: Apotek Kimia Farma atau sebutkan lokasi apotek',
+        label_tujuan: 'Alamat Pengiriman',
+        placeholder_tujuan: 'Contoh: Rumah saya, Jl. Merdeka No. 123'
+    },
+    'dokumen': {
+        label_jemput: 'Toko Fotokopi/Print',
+        placeholder_jemput: 'Contoh: Toko Fotokopi di depan kantor atau sebutkan lokasi',
+        label_tujuan: 'Alamat Pengiriman',
+        placeholder_tujuan: 'Contoh: Kantor JAKIR, Jl. Merdeka No. 123'
+    },
+    'antrian': {
+        label_jemput: 'Lokasi Antrian',
+        placeholder_jemput: 'Contoh: Bank BCA di Jl. Ahmad Yani atau nama tempat lainnya',
+        label_tujuan: 'Alamat Pengiriman Dokumen',
+        placeholder_tujuan: 'Contoh: Kantor saya, Jl. Merdeka No. 123'
+    },
+    'lainnya': {
+        label_jemput: 'Lokasi Jemput/Titik Awal',
+        placeholder_jemput: 'Sesuaikan dengan kebutuhan Anda',
+        label_tujuan: 'Lokasi Tujuan',
+        placeholder_tujuan: 'Sesuaikan dengan kebutuhan Anda'
+    }
+};
+
+// Update form labels ketika jenis layanan berubah
+document.getElementById('jenis_layanan').addEventListener('change', function() {
+    const serviceType = this.value;
+    if (layananConfig[serviceType]) {
+        const config = layananConfig[serviceType];
+        document.getElementById('label_lokasi_jemput').innerHTML = config.label_jemput + ' <span class="text-red-500">*</span>';
+        document.getElementById('label_lokasi_tujuan').innerHTML = config.label_tujuan + ' <span class="text-red-500">*</span>';
+        document.getElementById('lokasi_jemput').placeholder = config.placeholder_jemput;
+        document.getElementById('lokasi_tujuan').placeholder = config.placeholder_tujuan;
+    }
+});
+
 // Form Handling untuk JAKIR
 document.getElementById('orderFormElement').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -65,8 +123,9 @@ document.getElementById('orderFormElement').addEventListener('submit', function(
         metodePembayaran.value
     );
 
-    // Buka WhatsApp dengan pesan
-    const whatsappURL = `https://wa.me/${whatsappNormalized}?text=${encodeURIComponent(message)}`;
+    // Buka WhatsApp admin JAKIR dengan pesan
+    const adminWhatsApp = '6285133330227';
+    const whatsappURL = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
 
     // Reset form setelah 1 detik
