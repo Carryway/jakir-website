@@ -355,10 +355,30 @@ Terima kasih telah mempercayai JAKIR! 🙏`;
     return message;
 }
 
-// Auto-format WhatsApp number
-document.getElementById('whatsapp').addEventListener('input', function(e) {
-    // Hanya biarkan angka, hapus semua karakter lain
-    let value = e.target.value.replace(/\D/g, '');
+// Auto-format WhatsApp number dengan robust handling untuk mobile
+const whatsappInput = document.getElementById('whatsapp');
+
+whatsappInput.addEventListener('input', function(e) {
+    formatWhatsappInput();
+});
+
+whatsappInput.addEventListener('keydown', function(e) {
+    // Prevent backspace jika di posisi pertama (tidak boleh hapus apapun di awal)
+    if (e.key === 'Backspace' && this.value.length === 0) {
+        e.preventDefault();
+    }
+});
+
+whatsappInput.addEventListener('keyup', function(e) {
+    formatWhatsappInput();
+});
+
+whatsappInput.addEventListener('change', function(e) {
+    formatWhatsappInput();
+});
+
+function formatWhatsappInput() {
+    let value = whatsappInput.value.replace(/\D/g, '');
     
     // Jika dimulai dengan 0, hapus 0 di depan
     if (value.startsWith('0')) {
@@ -375,8 +395,8 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
         value = value.substring(0, 12);
     }
     
-    e.target.value = value;
-});
+    whatsappInput.value = value;
+}
 
 // Tampilkan loading state
 function showLoadingState() {
