@@ -34,7 +34,8 @@ const layananConfig = {
         label_jemput: 'Lokasi Antrian',
         placeholder_jemput: 'Contoh: Bank BCA di Jl. Ahmad Yani atau nama tempat lainnya',
         label_tujuan: 'Alamat Pengiriman Dokumen',
-        placeholder_tujuan: 'Contoh: Kantor saya, Jl. Merdeka No. 123'
+        placeholder_tujuan: 'Contoh: Kantor saya, Jl. Merdeka No. 123',
+        label_waktu: 'Waktu Antrian'
     },
     'lainnya': {
         label_jemput: 'Lokasi Jemput/Titik Awal',
@@ -44,15 +45,143 @@ const layananConfig = {
     }
 };
 
-// Update form labels ketika jenis layanan berubah
+// Fungsi untuk format tanggal dan menampilkan hari
+function formatHariTanggalJam(dateStr, timeStr) {
+    if (!dateStr || !timeStr) return null;
+    
+    const date = new Date(dateStr + 'T' + timeStr);
+    const hariName = date.toLocaleDateString('id-ID', { weekday: 'long' });
+    const tanggal = date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+    const jam = timeStr;
+    
+    return `${hariName}, ${tanggal} pukul ${jam} WIB`;
+}
+
+// Fungsi untuk update tampilan hari, tanggal, dan jam
+function updateHariDisplay(dateStr, timeStr) {
+    const hariDisplay = document.getElementById('hari_display');
+    if (!dateStr) return;
+    
+    const date = new Date(dateStr);
+    const hariName = date.toLocaleDateString('id-ID', { weekday: 'long' });
+    const tanggal = date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+    
+    if (timeStr) {
+        hariDisplay.innerHTML = `<p class="text-sm text-gray-600">Waktu yang dipilih:</p><p class="text-lg font-bold text-amber-700">${hariName}, ${tanggal} pukul ${timeStr} WIB</p>`;
+    } else {
+        hariDisplay.innerHTML = `<p class="text-sm text-gray-600">Hari yang dipilih:</p><p class="text-lg font-bold text-amber-700">${hariName}, ${tanggal}</p>`;
+    }
+}
+
+// Inisialisasi default tanggal dan jam ke sekarang
+document.addEventListener('DOMContentLoaded', function() {
+    const now = new Date();
+    
+    // Format tanggal untuk input date (YYYY-MM-DD)
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const dateValue = `${year}-${month}-${day}`;
+    
+    // Format jam untuk input time (HH:MM)
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const timeValue = `${hours}:${minutes}`;
+    
+    // Set minimum date ke hari ini (tidak boleh pilih hari yang sudah lewat)
+    document.getElementById('waktu_date').setAttribute('min', dateValue);
+    
+    // Set minimum time ke jam sekarang (untuk hari ini)
+    document.getElementById('waktu_time').setAttribute('min', timeValue);
+    
+    // Set default values
+    document.getElementById('waktu_date').value = dateValue;
+    document.getElementById('waktu_time').value = timeValue;
+    
+    // Update hidden field dan hari display dengan menggunakan fungsi updateHariDisplay
+    updateHariDisplay(dateValue, timeValue);
+    document.getElementById('waktu_penjemputan').value = formatHariTanggalJam(dateValue, timeValue);
+});
+
+// Update tampilan hari ketika date atau time berubah
+document.getElementById('waktu_date').addEventListener('change', function() {
+    const dateStr = this.value;
+    const timeStr = document.getElementById('waktu_time').value;
+    const timeInput = document.getElementById('waktu_time');
+    const now = new Date();
+    
+    // Format hari ini untuk perbandingan
+    const todayValue = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    
+    if (dateStr) {
+        // Update display dengan tanggal dan jam (jika ada)
+        updateHariDisplay(dateStr, timeStr);
+        
+        // Jika tanggal yang dipilih adalah hari ini, set minimum time ke jam sekarang
+        // Jika tanggal yang dipilih adalah hari depan atau lebih, hapus batasan waktu
+        if (dateStr === todayValue) {
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            timeInput.setAttribute('min', `${hours}:${minutes}`);
+        } else {
+            timeInput.removeAttribute('min');
+        }
+        
+        // Update hidden field
+        if (timeStr) {
+            document.getElementById('waktu_penjemputan').value = formatHariTanggalJam(dateStr, timeStr);
+        }
+    }
+});
+
+document.getElementById('waktu_time').addEventListener('change', function() {
+    const dateStr = document.getElementById('waktu_date').value;
+    const timeStr = this.value;
+    
+    // Update display dengan tanggal dan jam
+    updateHariDisplay(dateStr, timeStr);
+    
+    // Update hidden field
+    if (dateStr && timeStr) {
+        document.getElementById('waktu_penjemputan').value = formatHariTanggalJam(dateStr, timeStr);
+    }
+});
+
+// Update form labels dan visibility ketika jenis layanan berubah
 document.getElementById('jenis_layanan').addEventListener('change', function() {
     const serviceType = this.value;
+    
+    // Update labels
     if (layananConfig[serviceType]) {
         const config = layananConfig[serviceType];
         document.getElementById('label_lokasi_jemput').innerHTML = config.label_jemput + ' <span class="text-red-500">*</span>';
         document.getElementById('label_lokasi_tujuan').innerHTML = config.label_tujuan + ' <span class="text-red-500">*</span>';
         document.getElementById('lokasi_jemput').placeholder = config.placeholder_jemput;
         document.getElementById('lokasi_tujuan').placeholder = config.placeholder_tujuan;
+        
+        // Update Waktu label jika ada config untuk itu
+        if (config.label_waktu) {
+            document.getElementById('label_waktu_penjemputan').innerHTML = config.label_waktu + ' <span class="text-red-500">*</span>';
+        } else {
+            document.getElementById('label_waktu_penjemputan').innerHTML = 'Waktu Penjemputan <span class="text-red-500">*</span>';
+        }
+    }
+    
+    // Hide Waktu Penjemputan untuk layanan makanan dan obat
+    const waktuWrapper = document.getElementById('waktu_penjemputan_wrapper');
+    if (serviceType === 'makanan' || serviceType === 'obat') {
+        waktuWrapper.style.display = 'none';
+        document.getElementById('waktu_date').removeAttribute('required');
+        document.getElementById('waktu_time').removeAttribute('required');
+        // Clear waktu fields
+        document.getElementById('waktu_date').value = '';
+        document.getElementById('waktu_time').value = '';
+        document.getElementById('waktu_penjemputan').value = '';
+        document.getElementById('hari_display').innerHTML = `<p class="text-sm text-gray-600">Hari yang dipilih:</p><p class="text-lg font-bold text-amber-700">Pilih tanggal terlebih dahulu</p>`;
+    } else {
+        waktuWrapper.style.display = 'block';
+        document.getElementById('waktu_date').setAttribute('required', '');
+        document.getElementById('waktu_time').setAttribute('required', '');
     }
 });
 
@@ -67,6 +196,8 @@ document.getElementById('orderFormElement').addEventListener('submit', function(
     const detailOrder = document.getElementById('detail_order').value.trim();
     const lokasiJemput = document.getElementById('lokasi_jemput').value.trim();
     const lokasiTujuan = document.getElementById('lokasi_tujuan').value.trim();
+    const waktuDate = document.getElementById('waktu_date').value;
+    const waktuTime = document.getElementById('waktu_time').value;
     const waktuPenjemputan = document.getElementById('waktu_penjemputan').value.trim();
     const metodePembayaran = document.querySelector('input[name="metode_pembayaran"]:checked');
     const persetujuan = document.getElementById('persetujuan').checked;
@@ -111,6 +242,22 @@ document.getElementById('orderFormElement').addEventListener('submit', function(
         return;
     }
 
+    // Validasi Waktu Penjemputan (hanya jika tidak untuk makanan atau obat)
+    if (jenisLayanan !== 'makanan' && jenisLayanan !== 'obat') {
+        if (!waktuDate || !waktuTime) {
+            errorMessage.innerHTML = '<strong>Error:</strong> Mohon isi Tanggal dan Jam Penjemputan.';
+            errorMessage.style.display = 'block';
+            window.scrollTo(0, document.querySelector('form').offsetTop);
+            return;
+        }
+    }
+
+    // Format Waktu Penjemputan jika ada
+    let waktuPenjemputanFormatted = waktuPenjemputan;
+    if (waktuDate && waktuTime) {
+        waktuPenjemputanFormatted = formatHariTanggalJam(waktuDate, waktuTime);
+    }
+
     // Format pesan untuk WhatsApp
     const message = formatPesananKeWhatsApp(
         nama,
@@ -119,12 +266,12 @@ document.getElementById('orderFormElement').addEventListener('submit', function(
         detailOrder,
         lokasiJemput,
         lokasiTujuan,
-        waktuPenjemputan,
+        waktuPenjemputanFormatted,
         metodePembayaran.value
     );
 
     // Buka WhatsApp admin JAKIR dengan pesan
-    const adminWhatsApp = '6285133330227';
+    const adminWhatsApp = '6288262771573';
     const whatsappURL = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
 
@@ -176,40 +323,34 @@ function formatPesananKeWhatsApp(nama, whatsapp, jenisLayanan, detailOrder, loka
 
 Dikirim pada: ${dateStr} (${timeStr}) WIB
 
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 👤 *DATA PEMESAN*
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Nama: ${nama}
 No WhatsApp: ${whatsapp}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 📋 *DETAIL LAYANAN*
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Jenis Layanan: ${layananName}
 Detail Order: ${detailOrder}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 📍 *LOKASI*
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Lokasi Jemput: ${lokasiJemput}
 Lokasi Tujuan: ${lokasiTujuan}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 ⏰ *WAKTU*
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Waktu Penjemputan: ${waktuPenjemputan}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 💰 *PEMBAYARAN*
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Metode: ${metodeName}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 📌 *KETENTUAN*
-━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 ✓ Wajib share lokasi setelah format terkirim
 ✓ Jika transfer, silakan transfer terlebih dahulu
-✓ Komunikasi lancar melalui WhatsApp
 ✓ Setuju dengan ketentuan layanan JAKIR
 
 Terima kasih telah mempercayai JAKIR! 🙏`;

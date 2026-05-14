@@ -13,8 +13,7 @@
     <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://carryflix.com/jakir.jpg" alt="JAKIR Logo" class="h-10 w-auto mr-2">
-                <span class="text-2xl font-bold text-amber-500">JAKIR</span>
+                <a href="/"><span class="jakir-logo">JAKIR</span></a>
             </div>
             <div class="hidden md:flex space-x-8">
                 <a href="#layanan" class="text-gray-700 hover:text-amber-500 transition">Layanan</a>
@@ -38,17 +37,24 @@
 
     <!-- Hero Section -->
     <section class="hero-section pt-32 pb-16 px-4 bg-gradient-to-r from-amber-400 to-amber-600 text-white mt-16">
-        <div class="container mx-auto max-w-4xl">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Layanan Cepat dan Aman Bersama JAKIR</h1>
-                <p class="text-lg md:text-xl mb-8 text-blue-100">JAKIR hadir sebagai solusi praktis untuk kebutuhan Anda—cukup pesan, kami yang urus dan antar.</p>
-                <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="formulir.html#orderForm" class="text-center bg-white text-amber-600 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition">
-                        <i class="fas fa-shopping-cart mr-2"></i>MAS JAKIR
-                    </a>
-                    <a href="#office" class="text-center bg-amber-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">
-                        <i class="fas fa-phone mr-2"></i>KONTAK
-                    </a>
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Left Content -->
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Layanan Cepat dan Aman Bersama JAKIR</h1>
+                    <p class="text-lg md:text-xl mb-8 text-amber-100">JAKIR hadir sebagai solusi praktis untuk kebutuhan Anda cukup pesan, kami yang urus dan antar.</p>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <a href="#tarif" class="text-center bg-white text-amber-600 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition">
+                            <i class="fas fa-shopping-cart mr-2"></i>MAS JAKIR
+                        </a>
+                        <a href="#office" class="text-center bg-amber-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">
+                            <i class="fas fa-phone mr-2"></i>KONTAK
+                        </a>
+                    </div>
+                </div>
+                <!-- Right Image -->
+                <div class="flex justify-center">
+                    <img src="https://carryflix.com/jakir.png" alt="JAKIR Delivery Service" class="w-full h-auto max-w-md">
                 </div>
             </div>
         </div>
@@ -59,7 +65,7 @@
         <div class="container mx-auto">
             <div class="grid md:grid-cols-1 gap-12 mb-12">
                 <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                <!-- <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
                     <div class="text-4xl text-amber-500 mb-4">
                         <i class="fas fa-box"></i>
                     </div>
@@ -70,7 +76,7 @@
                     <a href="formulir.html#orderForm" class="inline-block w-full text-center bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600 transition font-semibold">
                         <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
                     </a>
-                </div>
+                </div> -->
             </div>
 
             <!-- More Services -->
@@ -214,7 +220,7 @@
                             <i class="fas fa-map-marker-alt mr-4 text-2xl mt-1"></i>
                             <div>
                                 <p class="font-bold">Alamat Kantor</p>
-                                <p class="text-blue-100">Jl. Merdeka No. 123<br>Kota Anda, Provinsi 12345</p>
+                                <p class="text-blue-100">Dusun Mantung RT 37 Desa Sidodadi, Kec. Pujon, Kabupaten Malang, Jawa Timur</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -228,14 +234,14 @@
                             <i class="fas fa-phone mr-4 text-2xl mt-1"></i>
                             <div>
                                 <p class="font-bold">Telepon</p>
-                                <p class="text-blue-100">+62 8xx xxxx xxxx</p>
+                                <p class="text-blue-100">+62 882-6277-1573</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-clock mr-4 text-2xl mt-1"></i>
                             <div>
                                 <p class="font-bold">Jam Operasional</p>
-                                <p class="text-blue-100">Senin - Jumat: 08:00 - 17:00<br>Sabtu - Minggu: 09:00 - 15:00</p>
+                                <p class="text-blue-100">Senin - Jumat: 07:00 - 21:00<br>Sabtu - Minggu: 08:00 - 21:00</p>
                             </div>
                         </div>
                     </div>
@@ -243,17 +249,13 @@
                 <div>
                     <h3 class="text-2xl font-bold mb-4">Ikuti Media Sosial Kami</h3>
                     <div class="space-y-3">
-                        <a href="#" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
+                        <a href="https://www.instagram.com/jakir.ofc" target="_blank" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
                             <i class="fab fa-instagram text-2xl mr-3"></i>
-                            <span>@jakir_official</span>
+                            <span>@jakir.ofc</span>
                         </a>
-                        <a href="#" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
-                            <i class="fab fa-tiktok text-2xl mr-3"></i>
-                            <span>@jakir_official</span>
-                        </a>
-                        <a href="#" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
+                        <a href="https://wa.me/6288262771573" target="_blank" class="flex items-center bg-white bg-opacity-20 hover:bg-opacity-30 transition p-4 rounded-lg">
                             <i class="fab fa-whatsapp text-2xl mr-3"></i>
-                            <span>+62 8xx xxxx xxxx</span>
+                            <span>+62 882-6277-1573</span>
                         </a>
                     </div>
                 </div>
@@ -288,7 +290,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 JAKIR. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> JAKIR. All rights reserved.</p>
             </div>
         </div>
     </footer>

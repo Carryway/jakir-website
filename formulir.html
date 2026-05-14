@@ -13,8 +13,7 @@
     <nav class="fixed w-full top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center">
-                <img src="https://carryflix.com/jakir.jpg" alt="JAKIR Logo" class="h-10 w-auto mr-2">
-                <span class="text-2xl font-bold text-amber-500">JAKIR</span>
+                <span class="jakir-logo">JAKIR</span>
             </a>
             <button onclick="window.history.back()" class="text-amber-500 hover:text-amber-600 font-semibold flex items-center gap-2">
                 <i class="fas fa-arrow-left"></i> Kembali
@@ -86,12 +85,33 @@
                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-gray-50">
                     </div>
 
-                    <!-- Waktu Penjemputan -->
-                    <div>
-                        <label class="block text-gray-800 font-semibold mb-2">Waktu Penjemputan <span class="text-red-500">*</span></label>
-                        <input type="text" id="waktu_penjemputan" name="waktu_penjemputan" placeholder="Contoh: Hari ini, pukul 15.00 WIB" required 
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-gray-50">
-                        <p class="text-sm text-gray-500 mt-1">Tuliskan hari dan jam yang Anda inginkan</p>
+                    <!-- Waktu Penjemputan (Conditional) -->
+                    <div id="waktu_penjemputan_wrapper">
+                        <label id="label_waktu_penjemputan" class="block text-gray-800 font-semibold mb-2">Waktu Penjemputan <span class="text-red-500">*</span></label>
+                        
+                        <!-- Tampilan Hari -->
+                        <div id="hari_display" class="mb-3 p-3 bg-amber-50 border-2 border-amber-200 rounded-lg text-center">
+                            <p class="text-sm text-gray-600">Hari yang dipilih:</p>
+                            <p class="text-lg font-bold text-amber-700">Pilih tanggal terlebih dahulu</p>
+                        </div>
+                        
+                        <!-- Date dan Time Input -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+                            <div>
+                                <label class="block text-sm text-gray-700 mb-1">Tanggal <span class="text-red-500">*</span></label>
+                                <input type="date" id="waktu_date" name="waktu_date" required 
+                                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-gray-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-700 mb-1">Jam <span class="text-red-500">*</span></label>
+                                <input type="time" id="waktu_time" name="waktu_time" required 
+                                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 bg-gray-50">
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500">Pilih tanggal dan jam yang Anda inginkan</p>
+                        
+                        <!-- Hidden field untuk form submission -->
+                        <input type="hidden" id="waktu_penjemputan" name="waktu_penjemputan">
                     </div>
 
                     <!-- Metode Pembayaran -->
@@ -168,7 +188,7 @@
                 </h3>
                 <p class="text-gray-700 mb-2">Hubungi kami langsung:</p>
                 <div class="space-y-2">
-                    <p class="text-gray-800"><i class="fas fa-whatsapp text-green-500 mr-2"></i><strong>WhatsApp:</strong> <a href="https://wa.me/628xx" class="text-amber-600 hover:underline">+62 8xx xxxx xxxx</a></p>
+                    <p class="text-gray-800"><i class="fas fa-whatsapp text-green-500 mr-2"></i><strong>WhatsApp:</strong> <a href="https://wa.me/6288262771573" class="text-amber-600 hover:underline">+62 882-6277-1573</a></p>
                     <p class="text-gray-800"><i class="fas fa-envelope text-amber-500 mr-2"></i><strong>Email:</strong> <a href="mailto:info@jakir.com" class="text-amber-600 hover:underline">info@jakir.com</a></p>
                 </div>
             </div>

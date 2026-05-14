@@ -170,3 +170,11 @@ if ('IntersectionObserver' in window) {
 
 // Log when page is ready
 console.log('JAKIR Website loaded successfully!');
+
+// Auto-update copyright year
+document.addEventListener('DOMContentLoaded', function() {
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+});
