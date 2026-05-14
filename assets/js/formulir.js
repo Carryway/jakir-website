@@ -323,32 +323,22 @@ function formatPesananKeWhatsApp(nama, whatsapp, jenisLayanan, detailOrder, loka
 
 Dikirim pada: ${dateStr} (${timeStr}) WIB
 
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 👤 *DATA PEMESAN*
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 Nama: ${nama}
 No WhatsApp: ${whatsapp}
-━━━━━━━━━━━━━━━━━━━
-📋 *DETAIL LAYANAN*
-━━━━━━━━━━━━━━━━━━━
 Jenis Layanan: ${layananName}
 Detail Order: ${detailOrder}
-━━━━━━━━━━━━━━━━━━━
-📍 *LOKASI*
-━━━━━━━━━━━━━━━━━━━
 Lokasi Jemput: ${lokasiJemput}
 Lokasi Tujuan: ${lokasiTujuan}
-━━━━━━━━━━━━━━━━━━━
-⏰ *WAKTU*
-━━━━━━━━━━━━━━━━━━━
 Waktu Penjemputan: ${waktuPenjemputan}
-━━━━━━━━━━━━━━━━━━━
 💰 *PEMBAYARAN*
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 Metode: ${metodeName}
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 📌 *KETENTUAN*
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━
 ✓ Wajib share lokasi setelah format terkirim
 ✓ Jika transfer, silakan transfer terlebih dahulu
 ✓ Setuju dengan ketentuan layanan JAKIR
