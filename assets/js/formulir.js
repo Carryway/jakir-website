@@ -124,7 +124,7 @@ document.getElementById('orderFormElement').addEventListener('submit', function(
     );
 
     // Buka WhatsApp admin JAKIR dengan pesan
-    const adminWhatsApp = '6285133330227';
+    const adminWhatsApp = '6288262771573';
     const whatsappURL = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
 
