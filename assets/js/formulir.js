@@ -319,7 +319,7 @@ function formatPesananKeWhatsApp(nama, whatsapp, jenisLayanan, detailOrder, loka
         minute: '2-digit' 
     });
 
-    const message = `🎯 *FORMULIR PESANAN JAKIR*
+    const message = `*FORMULIR PESANAN JAKIR*
 
 Dikirim pada: ${dateStr} (${timeStr}) WIB
 
@@ -328,16 +328,23 @@ Dikirim pada: ${dateStr} (${timeStr}) WIB
 ━━━━━━━━━━━━
 Nama: ${nama}
 No WhatsApp: ${whatsapp}
+
 Jenis Layanan: ${layananName}
+
 Detail Order: ${detailOrder}
+
 Lokasi Jemput: ${lokasiJemput}
+
 Lokasi Tujuan: ${lokasiTujuan}
+
 Waktu Penjemputan: ${waktuPenjemputan}
-💰 *PEMBAYARAN*
+
+*PEMBAYARAN*
 ━━━━━━━━━━━━
 Metode: ${metodeName}
+
 ━━━━━━━━━━━━
-📌 *KETENTUAN*
+*KETENTUAN*
 ━━━━━━━━━━━━
 ✓ Wajib share lokasi setelah format terkirim
 ✓ Jika transfer, silakan transfer terlebih dahulu
