@@ -357,19 +357,20 @@ Terima kasih telah mempercayai JAKIR! 🙏`;
 
 // Auto-format WhatsApp number
 document.getElementById('whatsapp').addEventListener('input', function(e) {
+    // Hanya biarkan angka, hapus semua karakter lain
     let value = e.target.value.replace(/\D/g, '');
     
-    // Jika dimulai dengan 0, hapus dan ganti dengan yang di belakang
+    // Jika dimulai dengan 0, hapus 0 di depan
     if (value.startsWith('0')) {
         value = value.substring(1);
     }
     
-    // Hapus prefix 62 jika ada (karena sudah ditampilkan di depan)
+    // Jika dimulai dengan 62, hapus (karena sudah ada di prefix)
     if (value.startsWith('62')) {
         value = value.substring(2);
     }
     
-    // Batasi sampai 12 digit (62 sudah ditampilkan, jadi total 14 digit)
+    // Batasi maksimal 12 digit
     if (value.length > 12) {
         value = value.substring(0, 12);
     }
