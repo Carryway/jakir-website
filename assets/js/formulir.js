@@ -226,9 +226,17 @@ document.getElementById('orderFormElement').addEventListener('submit', function(
         return;
     }
 
-    
+    // Validasi WhatsApp format
+    let whatsappNormalized = whatsapp.replace(/\D/g, '');
+    if (!whatsappNormalized.startsWith('62')) {
+        if (whatsappNormalized.startsWith('0')) {
+            whatsappNormalized = '62' + whatsappNormalized.substring(1);
+        } else {
+            whatsappNormalized = '62' + whatsappNormalized;
+        }
+    }
 
-    if (whatsappNormalized.length < 10 || whatsappNormalized.length > 17) {
+    if (whatsappNormalized.length < 10 || whatsappNormalized.length > 16) {
         errorMessage.innerHTML = '<strong>Error:</strong> Nomor WhatsApp tidak valid. Pastikan format benar (62812345678).';
         errorMessage.style.display = 'block';
         return;
@@ -382,9 +390,9 @@ function formatWhatsappInput() {
         value = value.substring(2);
     }
     
-    // Batasi maksimal 12 digit
-    if (value.length > 12) {
-        value = value.substring(0, 12);
+    // Batasi maksimal 14 digit
+    if (value.length > 14) {
+        value = value.substring(0, 14);
     }
     
     whatsappInput.value = value;
