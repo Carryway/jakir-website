@@ -358,15 +358,22 @@ Terima kasih telah mempercayai JAKIR! 🙏`;
 // Auto-format WhatsApp number
 document.getElementById('whatsapp').addEventListener('input', function(e) {
     let value = e.target.value.replace(/\D/g, '');
+    
+    // Jika dimulai dengan 0, hapus dan ganti dengan yang di belakang
     if (value.startsWith('0')) {
-        value = '62' + value.substring(1);
-    } else if (!value.startsWith('62')) {
-        value = '62' + value;
+        value = value.substring(1);
     }
-    // Hanya tampilkan yang pertama 15 digit
-    if (value.length > 15) {
-        value = value.substring(0, 15);
+    
+    // Hapus prefix 62 jika ada (karena sudah ditampilkan di depan)
+    if (value.startsWith('62')) {
+        value = value.substring(2);
     }
+    
+    // Batasi sampai 12 digit (62 sudah ditampilkan, jadi total 14 digit)
+    if (value.length > 12) {
+        value = value.substring(0, 12);
+    }
+    
     e.target.value = value;
 });
 
